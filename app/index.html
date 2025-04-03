@@ -14,6 +14,7 @@
 
     <script type="module">
       import { NavBar } from "./component/NavBar/script.js";
+      import { Main } from "./component/Main/script.js";
 
       // Controleur
       // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
@@ -41,6 +42,11 @@
        * formaté par le composant NavBar.
        */
       V.renderNavBar = function (hAbout) {
+        let header = document.querySelector("#header");
+        header.innerHTML = NavBar.format(hAbout);
+      };
+
+      V.renderMovie = function (hAbout) {
         let header = document.querySelector("#header");
         header.innerHTML = NavBar.format(hAbout);
       };

@@ -17,3 +17,18 @@ define("HOST", "localhost");
 define("DBNAME", "meignant3");
 define("DBLOGIN", "meignant3");
 define("DBPWD", "meignant3");
+
+  function getMovie() {
+
+    $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+    
+    $sql = "SELECT name, image FROM movie"
+
+    $stmt = $cnx->prepare($sql);
+
+    $stmt->execute();
+
+       // Récupère les résultats de la requête sous forme d'objets
+       $res = $stmt->fetchAll(PDO::FETCH_OBJ);
+       return $res; // Retourne les résultats
+  }

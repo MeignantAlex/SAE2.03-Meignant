@@ -20,3 +20,8 @@
  */
 require("model.php");
 
+function readController(){
+
+    $movie = getMovie();
+    return $movie;
+}
