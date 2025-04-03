@@ -22,7 +22,7 @@ define("DBPWD", "meignant3");
 
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     
-    $sql = "SELECT name, image FROM movie"
+    $sql = "select id, name, image from movie";
 
     $stmt = $cnx->prepare($sql);
 

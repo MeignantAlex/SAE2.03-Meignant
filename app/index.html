@@ -46,9 +46,9 @@
         header.innerHTML = NavBar.format(hAbout);
       };
 
-      V.renderMovie = function (hAbout) {
-        let header = document.querySelector("#header");
-        header.innerHTML = NavBar.format(hAbout);
+      V.renderMovie = function (Titre, Image) {
+        let header = document.querySelector(".movie");
+        header.innerHTML = Movie.format(Titre, Image);
       };
 
       C.start(); // Démarre l'application

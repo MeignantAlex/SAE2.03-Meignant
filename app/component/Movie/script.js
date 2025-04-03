@@ -1,12 +1,12 @@
 let templateFile = await fetch("./component/Movie/template.html");
 let template = await templateFile.text();
  
-let Main = {};
+let Movie = {};
 
-Main.format = function(movie){
+Movie.format = function(Titre, Image){
     let html= template;
-    html = html.replace('{{Titre}}', movie.Titre);
-    html = html.replace('{{Image}}', movie.Image);
+    html = html.replace('{{Titre}}', Titre);
+    html = html.replace('{{Image}}', Image);
     return html;
 }
 
