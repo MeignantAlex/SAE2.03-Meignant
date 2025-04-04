@@ -30,3 +30,25 @@
     font-size: 1rem; 
     font-weight: bold; 
 }
+
+@media (max-width: 1024px) {
+    .card {
+        flex: 0 1 calc(33.33% - 16px);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 0 1 calc(50% - 16px); 
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        flex: 0 1 calc(100% - 16px); 
+    }
+
+    .name {
+        font-size: 0.9rem;
+    }
+}
