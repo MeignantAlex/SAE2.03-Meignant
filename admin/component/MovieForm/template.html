@@ -1,0 +1,26 @@
+<div class="addMenu">
+    <h4 class="addMenu__title"># Ajouter ou modifier un film dans le bdd</h4>
+    <form class="addMovie__form">
+
+        <input required 
+        type="text" 
+        name="name" 
+        placeholder="Saisir le nom du film"
+        />
+
+        >
+        
+        <select name="jour"
+            onchange="{{handlerSelect}}">
+            <option value="lundi">Lundi</option>
+            <option value="mardi">Mardi</option>
+            <option value="mercredi">Mercredi</option>
+            <option value="jeudi">Jeudi</option>
+            <option value="vendredi">Vendredi</option>
+            <option value="samedi">Samedi</option>
+            <option value="dimanche">Dimanche</option>
+        </select>
+
+
+    </form>
+</div>
