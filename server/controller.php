@@ -22,6 +22,6 @@ require("model.php");
 
 function readController(){
 
-    $movie = getMovie();
+    $movie = getMovies();
     return $movie;
 }
