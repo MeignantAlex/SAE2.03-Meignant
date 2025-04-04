@@ -10,11 +10,4 @@ Movie.format = function(Titre, Image){
     return html;
 }
 
-Main.formatMany = function(movies){
-    let html = '';
-    for (const movie of movies) {
-        html += Menu.format(movie);
-    }
-    return html;
-}
 export {Movie};
