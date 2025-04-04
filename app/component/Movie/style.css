@@ -1,15 +1,15 @@
 .card {
     position: relative; 
-    flex: 0 1 calc(25% - 16px); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    border-radius: 8px; 
+    flex: 0 1 calc(25% - 1rem); /* 16px = 1rem */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* 4px = 0.25rem, 8px = 0.5rem */
+    border-radius: 0.5rem; /* 8px = 0.5rem */
     overflow: hidden; 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .card:hover {
     transform: scale(1.05); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); /* 8px = 0.5rem, 16px = 1rem */
 }
 
 .image-placeholder {
@@ -25,7 +25,7 @@
     background: rgba(0, 0, 0, 0.6); 
     color: white; 
     text-align: center; 
-    padding: 8px 0; 
-    font-size: 1rem; 
+    padding: 0.5rem 0; /* 8px = 0.5rem */
+    font-size: 1rem; /* 16px = 1rem */
     font-weight: bold; 
 }

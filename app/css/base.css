@@ -6,3 +6,12 @@
 
 @import "../component/NavBar/style.css" layer(components);
 @import "../component/Movie/style.css" layer(components);
+
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    height: fit-content;
+}
