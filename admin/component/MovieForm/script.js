@@ -4,11 +4,10 @@ let template = await templateFile.text();
 
 let MovieForm = {};
 
-MovieForm.format = function(handlerSubmit, handlerSelect){
+MovieForm.format = function (handler){
     let html= template;
     html = html.replace('{{handler}}', handler);
     return html;
 }
 
-export {NewMenuForm};
-
+export {MovieForm};
