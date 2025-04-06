@@ -25,3 +25,31 @@ function readController(){
     $movie = getMovies();
     return $movie;
 }
+
+function updateController(){
+    /* Lecture des données de formulaire
+      On ne vérifie pas si les données sont valides, on suppose (faudra pas toujours...) que le client les a déjà
+      vérifiées avant de les envoyer 
+    */
+    $name = $_REQUEST['name'];
+    $réalisateur = $_REQUEST['réalisateur'];
+    $year = $_REQUEST['year'];
+    $date = $_REQUEST['date'];
+    $time = $_REQUEST['time'];
+    $description = $_REQUEST['description'];
+    $Category = $_REQUEST['Category'];
+    $image = $_REQUEST['image'];
+    $url = $_REQUEST['url'];
+    $age_minimal = $_REQUEST['age_minimal'];
+    // Mise à jour du menu à l'aide de la fonction updateMenu décrite dans model.php
+    $ok = updateMovie($name, $réalisateur, $year, $date, $time, $description, $Category, $image, $url, $age_minimal);
+    // $ok est le nombre de ligne affecté par l'opération de mise à jour dans la BDD (voir model.php)
+    if ($ok!=0){
+      return "Le $name $réalisateur $year $date $time $description $Category $image $url $age_minimal a été mis à jour avec succès !";
+    }
+    else{
+      return false;
+    }
+  }
+  
+  
