@@ -16,23 +16,12 @@
 
     <script type="module">
       import { Log } from "./component/Log/script.js";
-    import { MovieForm } from "./component/MovieForm/script.js";
+      import { MovieForm } from "./component/MovieForm/script.js";
+      import {DataMovie} from "./data/dataMovie.js";
      
       window.C = {};
 
-      C.handler = async function (e) {
-        e.preventDefault();
-        let form = e.target.closest("form");
-        let data = new FormData(form);
-        let movie = Object.fromEntries(data.entries());
-        console.log(movie);
-      };
-      C.renderMovieForm = function () {
-        let content = document.querySelector("#movieForm");
-        content.innerHTML = MovieForm.template({
-          handler: C.handler,
-        });
-      };
+
 
       C.start = function () {
         V.renderLog("Démarrage de l'application");
@@ -45,14 +34,12 @@
         let content = document.querySelector("#log");
         content.innerHTML = Log.format(txt);
       };
-
       V.renderMovieForm = function (txt) {
-        let content = document.querySelector("#movieForm");
-        content.innerHTML = MovieForm.template({
-          handler: C.handler,
-        });
+        let content = document.querySelector("#MovieForm");
+        content.innerHTML = MovieForm.format(txt);
       };
 
+     
       C.start();
     </script>
   </body>

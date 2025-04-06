@@ -1,6 +1,6 @@
 let HOST_URL = "https://mmi.unilim.fr/~meignant3/SAE2.03-Meignant"; // CHANGE THIS TO MATCH YOUR CONFIG
 
-let DataMenu = {};
+let DataMovie = {};
 
 /** 
 * @param {*} fdata
