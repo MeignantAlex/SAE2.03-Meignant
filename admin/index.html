@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="./css/base.css" />
   </head>
   <body>
+   <div>
     <section id="log"></section>
+    <section id="movieForm"></section>
+
+  </div>
+
 
     <script type="module">
       import { Log } from "./component/Log/script.js";
@@ -15,8 +20,23 @@
      
       window.C = {};
 
+      C.handler = async function (e) {
+        e.preventDefault();
+        let form = e.target.closest("form");
+        let data = new FormData(form);
+        let movie = Object.fromEntries(data.entries());
+        console.log(movie);
+      };
+      C.renderMovieForm = function () {
+        let content = document.querySelector("#movieForm");
+        content.innerHTML = MovieForm.template({
+          handler: C.handler,
+        });
+      };
+
       C.start = function () {
         V.renderLog("Démarrage de l'application");
+        V.renderMovieForm("Formulaire de création de film");
       };
 
       window.V = {};
@@ -24,6 +44,13 @@
       V.renderLog = function (txt) {
         let content = document.querySelector("#log");
         content.innerHTML = Log.format(txt);
+      };
+
+      V.renderMovieForm = function (txt) {
+        let content = document.querySelector("#movieForm");
+        content.innerHTML = MovieForm.template({
+          handler: C.handler,
+        });
       };
 
       C.start();
