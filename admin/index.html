@@ -9,7 +9,7 @@
   <body>
    <div>
     <section id="log"></section>
-    <section id="movieForm"></section>
+    <section id="MovieForm"></section>
 
   </div>
 
@@ -20,6 +20,17 @@
       import {DataMovie} from "./data/dataMovie.js";
      
       window.C = {};
+      C.handlerUpdate = async function(){
+            
+            
+            let form = document.querySelector('.Movie__form');
+          
+            let fd = new FormData(form);
+            // Attend la réponse de la fonction `DataMenu.update(fd)`
+            let res = await DataMovie.update(fd);
+            // Affiche le résultat de la mise à jour dans le journal
+            V.renderLog(log);
+        }
 
 
 
