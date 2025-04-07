@@ -17,7 +17,11 @@ DataMovie.add = async function(fdata){
 
     }
 
-    let answer = await fetch(HOST_URL + "server/script.php?todo=update", config);
+    let answer = await fetch(HOST_URL + "/server/script.php?todo=update", config);
+
+    if (!answer.ok) {
+        throw new Error("Echec de la requête " + answer.statusText);
+    }   
     let data = await answer.json();
     return data;
 }
