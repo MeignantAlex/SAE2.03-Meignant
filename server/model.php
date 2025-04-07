@@ -35,8 +35,11 @@ define("DBPWD", "meignant3");
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD); 
     // Requête SQL de mise à jour du menu avec des paramètres
-    $sql = "REPLACE INTO Movies (name, director, year, lentgh, description, id_category, image, trailer, min_age)
-    VALUES (:name, :director, :year, :lengh, :description, :id_category, :image, :trailer, :min_age)"; 
+    // $sql = "REPLACE INTO Movies (name, director, year, lengh, description, id_category, image, trailer, min_age)
+    // VALUES (:name, :director, :year, :lengh, :description, :id_category, :image, :trailer, :min_age)"; 
+
+    $sql = "INSERT INTO `Movie`(`name`, `year`, `length`, `description`, `director`, `id_category`, `image`, `trailer`, `min_age`)
+     VALUES (':name, :year, :lentgh, :description, :director, :id_category, :image, :trailer, :min_age')";
            
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);
@@ -44,7 +47,7 @@ define("DBPWD", "meignant3");
     $stmt->bindParam(':name', $n);
     $stmt->bindParam(':director', $r);
     $stmt->bindParam(':year', $y);
-    $stmt->bindParam(':length', $t);
+    $stmt->bindParam(':lentgh', $t);
     $stmt->bindParam(':description', $des);
     $stmt->bindParam(':id_category', $c);
     $stmt->bindParam(':image', $i);

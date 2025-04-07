@@ -17,3 +17,5 @@ DataMovie.request = async function(){
     return data;
 }
 
+
+export {DataMovie};
