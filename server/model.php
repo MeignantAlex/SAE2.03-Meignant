@@ -35,22 +35,22 @@ define("DBPWD", "meignant3");
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD); 
     // Requête SQL de mise à jour du menu avec des paramètres
-    $sql = "REPLACE INTO Movies (name, réalisateur, year, date, time, description, Category, image, url, age_minimal)
+    $sql = "REPLACE INTO Movies (name, director, year, date, lengh, description, Category, image, url, age_minimal)
     VALUES (:name, :réalisateur, :year, :date, :time, :description, :Category, :image, :url, :age_minimal)"; 
            
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);
     // Lie les paramètres aux valeurs
     $stmt->bindParam(':name', $n);
-    $stmt->bindParam(':réalisateur', $r);
+    $stmt->bindParam(':director', $r);
     $stmt->bindParam(':year', $y);
     $stmt->bindParam(':date', $d);
-    $stmt->bindParam(':time', $t);
+    $stmt->bindParam(':lengh', $t);
     $stmt->bindParam(':description', $des);
     $stmt->bindParam(':Category', $c);
     $stmt->bindParam(':image', $i);
-    $stmt->bindParam(':url', $u);
-    $stmt->bindParam(':age_minimal', $a);
+    $stmt->bindParam(':ttr  iler', $u);
+    $stmt->bindParam(':min_age', $a);
     // Exécute la requête SQL
     $stmt->execute();
     // Récupère le nombre de lignes affectées par la requête

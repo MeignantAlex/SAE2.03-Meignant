@@ -32,17 +32,17 @@ function updateController(){
       vérifiées avant de les envoyer 
     */
     $name = $_REQUEST['name'];
-    $réalisateur = $_REQUEST['réalisateur'];
+    $réalisateur = $_REQUEST['director'];
     $year = $_REQUEST['year'];
     $date = $_REQUEST['date'];
     $time = $_REQUEST['time'];
     $description = $_REQUEST['description'];
-    $Category = $_REQUEST['Category'];
+    $Category = $_REQUEST['id_category'];
     $image = $_REQUEST['image'];
-    $url = $_REQUEST['url'];
-    $age_minimal = $_REQUEST['age_minimal'];
+    $url = $_REQUEST['trailer'];
+    $age_minimal = $_REQUEST['min_age'];
     // Mise à jour du menu à l'aide de la fonction updateMenu décrite dans model.php
-    $ok = updateMovie($name, $réalisateur, $year, $date, $time, $description, $Category, $image, $url, $age_minimal);
+    $ok = updateMovie($name, $director, $year, $date, $time, $description, $id_category, $image, $trailer, $min_age);
     // $ok est le nombre de ligne affecté par l'opération de mise à jour dans la BDD (voir model.php)
     if ($ok!=0){
       return "Le $name $réalisateur $year $date $time $description $Category $image $url $age_minimal a été mis à jour avec succès !";
