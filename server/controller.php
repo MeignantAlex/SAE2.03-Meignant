@@ -35,7 +35,7 @@ function updateController(){
     $réalisateur = $_REQUEST['director'];
     $year = $_REQUEST['year'];
     $date = $_REQUEST['date'];
-    $time = $_REQUEST['time'];
+    $time = $_REQUEST['lengh'];
     $description = $_REQUEST['description'];
     $Category = $_REQUEST['id_category'];
     $image = $_REQUEST['image'];
