@@ -39,7 +39,7 @@ define("DBPWD", "meignant3");
     // VALUES (:name, :director, :year, :lengh, :description, :id_category, :image, :trailer, :min_age)"; 
 
     $sql = "INSERT INTO `Movie`(`name`, `year`, `length`, `description`, `director`, `id_category`, `image`, `trailer`, `min_age`)
-     VALUES (':name, :year, :lentgh, :description, :director, :id_category, :image, :trailer, :min_age')";
+     VALUES (:name, :year, :lentgh, :description, :director, :id_category, :image, :trailer, :min_age)";
            
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);

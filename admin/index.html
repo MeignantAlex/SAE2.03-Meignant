@@ -45,9 +45,9 @@
         let content = document.querySelector("#log");
         content.innerHTML = Log.format(txt);
       };
-      V.renderMovieForm = function (txt) {
+      V.renderMovieForm = function (handler) {
         let content = document.querySelector("#MovieForm");
-        content.innerHTML = MovieForm.format(txt);
+        content.innerHTML = MovieForm.format(handler);
       };
 
      
