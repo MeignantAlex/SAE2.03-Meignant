@@ -51,4 +51,9 @@ function updateController(){
     }
   }
   
-  
+
+  function detailController(){
+    $id = $_REQUEST['id'];
+    $movie = getMovieDetail($id);
+    return $movie;
+  }

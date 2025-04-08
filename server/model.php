@@ -59,3 +59,19 @@ define("DBPWD", "meignant3");
     $res = $stmt->rowCount(); 
     return $res; // Retourne le nombre de lignes affectées
 }
+
+
+function detailMovie($id) {
+    // Connexion à la base de données
+    $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD); 
+    // Requête SQL pour récupérer les détails d'un film par son ID
+    $sql = "SELECT Movie. *, Category.name AS category_name
+            FROM Movie
+            JOIN Category ON Movie.id_category = Category.id_category
+            WHERE Movie.id_movie = :id";
+
+    $answer = $cnx->query($sql);
+
+    $res = $answer->fetchAll(PDO::FETCH_OBJ);
+    return $res; // Retourne le résultat
+}
