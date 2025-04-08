@@ -35,14 +35,20 @@
         );
       };
 
-      C.handlerDetail = function (id) {
-        alert("Détail du film " + id);
+      C.handlerHome = async function (id) {
+       console.log(id)
+       V.renderDetail(id);
+      };
+
+      C.handlerDetail = async function (id) {
+        let data = await DataMovie.requestMovieDetails(id);
+        V.renderDetail(data);
       };
 
       C.start = function () {
-        V.renderNavBar("C.handlerAbout()");
+        V.renderNavBar("C.handlerAbout()", "C.handlerHome()");
         V.renderMovie()
-        V.renderDetail("C.handlerDetail()");
+      
       };
 
       // Vue (contient tout ce qui est relatif à l'affichage)
@@ -55,9 +61,9 @@
        * Elle sélectionne l'élément HTML avec l'ID "header" et y insère le contenu
        * formaté par le composant NavBar.
        */
-      V.renderNavBar = function (hAbout) {
+      V.renderNavBar = function (hAbout, hHome) {
         let header = document.querySelector("#header");
-        header.innerHTML = NavBar.format(hAbout);
+        header.innerHTML = NavBar.format(hAbout, hHome);
 
        
       };
@@ -79,20 +85,25 @@
         content.innerHTML = html;
       };
 
-      V.renderDetail = function (hDetail) {
+      V.renderDetail = async function ($movieId) {
         let content = document.querySelector("#content");
-        const movies = DataMovie.request();
+        const movies = await DataMovie.request();
+       // const movies = []; pour tester l'affichage de la page sans film
         console.log(movies);
         if (movies.length === 0) {
-          content.innerHTML = Movie.formatNoMovie();
-          return;
+         content.innerHTML = Movie.formatNoMovie();
+         return;
         }
         let html = "";
         for (let movie of movies) {
-          html += Movie.format(movie.name, movie.image, hDetail);
+          html += Movie.format(movie.name, movie.image, movie.year, movie.min_age, movie.description, movie.category, movie.director, movie.trailer);
+
         }
         content.innerHTML = html;
       };
+
+    
+      
 
       
 
