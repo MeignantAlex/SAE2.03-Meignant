@@ -1,19 +1,74 @@
 .addMovie {
-    width:30rem;
+    max-width: 37.5rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 .addMovie__title {
-    margin-bottom: 0.2rem;
-    color: #fff;
-  
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
 }
 
 .addMovie__form {
     display: flex;
     flex-direction: column;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(255, 255, 255);
-    padding:1.5rem;
+    gap: 1rem;
 }
 
+.addMovie__form input,
+.addMovie__form select {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.addMovie__form input:focus,
+.addMovie__form select:focus {
+    border-color: #007bff;
+}
+
+.addMovie__form input[type="button"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.addMovie__form input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.addMovie__form select {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.addMovie__form input[type="button"]:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 48rem) {
+    .addMovie {
+        padding: 1.5rem;
+    }
+
+    .addMovie__title {
+        font-size: 1.25rem;
+    }
+
+    .addMovie__form input,
+    .addMovie__form select {
+        font-size: 0.9rem;
+    }
+}
