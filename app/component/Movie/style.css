@@ -1,31 +1,49 @@
+/* Card container: chaque card a une largeur et une hauteur fixe */
 .card {
-    width: 300px;
-    border-radius: 0.25rem;
+    position: relative;
+    margin: 1rem;
+    width: 18.75rem;  /* 300px => 300/16 = 18.75rem */
+    height: 25rem;    /* 400px => 400/16 = 25rem */
     overflow: hidden;
+    border-radius: 0.5rem;
     box-shadow: 0 0.125rem 0.31rem rgba(0, 0, 0, 0.1);
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    position: relative;
 }
 
+/* Image styling: l'image couvre entièrement la card */
 .card-img {
     width: 100%;
-    height: 25rem;
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 
-.card-title {
+/* .name est centré, mais caché au départ */
+.card .name {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    right: 0;
-    padding: 0.625rem;
-    text-align: center;
-    font-weight: bold;
-    color: #fff;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Au survol de la carte, on affiche .name avec un petit zoom */
+.card:hover .name {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Hover effect for the card */
 .card:hover {
     transform: scale(1.1);
 }
