@@ -86,12 +86,11 @@
 
       V.renderDetail = async function ($id) {
         let content = document.querySelector("#content");
-        const movies = await DataMovie.request($id);
-       // const movies = []; pour tester l'affichage de la page sans film
-        console.log(movies);
+        let movie = await DataMovie.request($id);
+        console.log(movie);
         let html = "";
         
-          html += Movie.format(movie.name, movie.image, movie.year, movie.min_age, movie.description, movie.id_category, movie.director, movie.trailer);
+          html += Movie.format(movie.name, movie.image, movie.year, movie.min_age, movie.description, movie.category_name, movie.director, movie.trailer);
 
         
         content.innerHTML = html;
