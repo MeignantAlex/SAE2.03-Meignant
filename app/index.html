@@ -16,6 +16,7 @@
     <script type="module">
       import { NavBar } from "./component/NavBar/script.js";
       import {Movie} from "./component/Movie/script.js";
+      import {MovieDetail} from "./component/MovieDetail/script.js";
       import { DataMovie } from "./data/dataMovie.js";
       console.log(DataMovie.request());
 
@@ -35,19 +36,16 @@
         );
       };
 
-      C.handlerHome = async function (id) {
+      C.handlerMovie = async function (id) {
        console.log(id)
        V.renderDetail(id);
       };
 
-      C.handlerDetail = async function (id) {
-        let data = await DataMovie.requestMovieDetails(id);
-        V.renderDetail(data);
-      };
 
       C.start = function () {
-        V.renderNavBar("C.handlerAbout()", "C.handlerHome()");
-        V.renderMovie()
+        V.renderNavBar("C.handlerAbout()", "V.renderMovie()");
+        V.renderMovie();
+        
       
       };
 
@@ -71,7 +69,8 @@
       V.renderMovie = async function () {
         let content = document.querySelector("#content");
         const movies = await DataMovie.request();
-       // const movies = []; pour tester l'affichage de la page sans film
+        //const movies = []; 
+        //pour tester l'affichage de la page sans film
         console.log(movies);
         if (movies.length === 0) {
          content.innerHTML = Movie.formatNoMovie();
@@ -79,26 +78,22 @@
         }
         let html = "";
         for (let movie of movies) {
-          html += Movie.format(movie.name, movie.image);
+          html += Movie.format("C.handlerMovie(" + movie.id +")",movie.name, movie.image);
 
         }
         content.innerHTML = html;
       };
 
-      V.renderDetail = async function ($movieId) {
+      V.renderDetail = async function ($id) {
         let content = document.querySelector("#content");
-        const movies = await DataMovie.request();
+        const movies = await DataMovie.request($id);
        // const movies = []; pour tester l'affichage de la page sans film
         console.log(movies);
-        if (movies.length === 0) {
-         content.innerHTML = Movie.formatNoMovie();
-         return;
-        }
         let html = "";
-        for (let movie of movies) {
-          html += Movie.format(movie.name, movie.image, movie.year, movie.min_age, movie.description, movie.category, movie.director, movie.trailer);
+        
+          html += Movie.format(movie.name, movie.image, movie.year, movie.min_age, movie.description, movie.id_category, movie.director, movie.trailer);
 
-        }
+        
         content.innerHTML = html;
       };
 

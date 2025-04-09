@@ -17,9 +17,9 @@ DataMovie.request = async function(){
     return data;
 }
 
-DataMovie.requestMovieDetails = async function($movieId){
+DataMovie.requestMovieDetail = async function($id){
     // Envoie une requête pour obtenir tous les détails d’un film en transmettant son identifiant
-    let answer = await fetch(HOST_URL + "/server/script.php?todo=movieDetails&id=" + $movieId);
+    let answer = await fetch(HOST_URL + "/server/script.php?todo=movieDetails&id=" + $id);
     let data = await answer.json();
     return data;
 }

@@ -22,7 +22,7 @@ define("DBPWD", "meignant3");
 
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     
-    $sql = "SELECT name, image FROM Movie";
+    $sql = "SELECT id,  name, image FROM Movie";
 
     $answer = $cnx->query($sql);
 
@@ -67,8 +67,8 @@ function detailMovie($id) {
     // Requête SQL pour récupérer les détails d'un film par son ID
     $sql = "SELECT Movie. *, Category.name AS category_name
             FROM Movie
-            JOIN Category ON Movie.id_category = Category.id_category
-            WHERE Movie.id_movie = :id";
+            INNER JOIN Category ON Movie.id_category = Category.id
+            WHERE Movie.id = $id";
 
     $answer = $cnx->query($sql);
 
