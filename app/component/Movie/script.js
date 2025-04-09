@@ -7,7 +7,8 @@ let Movie = {};
 
 Movie.format = function (handler, name, image) {
     let html = template;
-    html = html.replace("{{handler}}", handler);
+    html = html.replace("{id}", handler);
+    // html = html.replace("{{handler}}", handler);
     html = html.replace("{{name}}", name);
     html = html.replace("{{image}}", image);
     return html;

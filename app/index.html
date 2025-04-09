@@ -78,7 +78,7 @@
         }
         let html = "";
         for (let movie of movies) {
-          html += Movie.format("C.handlerMovie(" + movie.id +")",movie.name, movie.image);
+          html += Movie.format(movie.id,movie.name, movie.image);
 
         }
         content.innerHTML = html;
