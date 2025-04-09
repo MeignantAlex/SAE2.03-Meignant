@@ -3,51 +3,60 @@
     grid-template-columns: 1fr 2fr;
     gap: 20px;
     max-width: 900px;
-    margin: auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    margin: 40px auto;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
 }
 
-.img {
+.MovieDetail .img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.name {
-    font-size: 24px;
-    font-style: italic;
+.MovieDetail .name {
+    font-size: 28px;
     font-weight: bold;
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #333;
 }
 
-.year,
-.category {
+.MovieDetail .year,
+.MovieDetail .category {
     font-style: italic;
     color: #666;
     margin-bottom: 10px;
 }
 
-.description {
+.MovieDetail .description {
     margin-top: 20px;
     font-size: 18px;
+    line-height: 1.6;
     font-style: italic;
+    color: #444;
 }
 
-.director,
-.min_age {
+.MovieDetail .director,
+.MovieDetail .min_age {
     font-size: 14px;
     font-style: italic;
-    color: #333;
+    color: #555;
     margin-top: 10px;
 }
 
-iframe {
+.MovieDetail iframe {
     grid-column: 1 / -1;
     width: 100%;
-    margin-top: 30px;
     height: 315px;
+    margin-top: 30px;
     border: none;
+    border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
