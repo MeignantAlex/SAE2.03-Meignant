@@ -60,7 +60,7 @@ if ( isset($_REQUEST['todo']) ){
       $data = updateController();
       break;
 
-    case 'detailMovie':
+    case 'movieDetails':
       $data = detailController();
       break;
 

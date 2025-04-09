@@ -86,11 +86,11 @@
 
       V.renderDetail = async function ($id) {
         let content = document.querySelector("#content");
-        let movie = await DataMovie.request($id);
+        let movie = await DataMovie.requestMovieDetail($id);
         console.log(movie);
         let html = "";
         
-          html += Movie.format(movie.name, movie.image, movie.year, movie.min_age, movie.description, movie.category_name, movie.director, movie.trailer);
+          html += MovieDetail.format(movie[0]);
 
         
         content.innerHTML = html;

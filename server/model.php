@@ -61,7 +61,7 @@ define("DBPWD", "meignant3");
 }
 
 
-function detailMovie($id) {
+function getdetailMovie($id) {
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD); 
     // Requête SQL pour récupérer les détails d'un film par son ID
