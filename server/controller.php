@@ -34,7 +34,7 @@ function updateController(){
     $name = $_REQUEST['name'];
     $director = $_REQUEST['director'];
     $year = $_REQUEST['year'];
-    $lengh = $_REQUEST['lentgh'];
+    $lengh = $_REQUEST['length'];
     $description = $_REQUEST['description'];
     $id_category = $_REQUEST['id_category'];
     $image = $_REQUEST['image'];
