@@ -1,11 +1,27 @@
-<div class = "MovieDetail">
+<div class="MovieDetail">
+    
+    <!-- Image du film -->
+    <img class="img" src="https://mmi.unilim.fr/~meignant3/SAE2.03-Meignant/server/images/{{image}}" alt="Affiche du film">
 
-    <img class = "img" src="https://mmi.unilim.fr/~meignant3/SAE2.03-Meignant/server/images/{{image}}" alt="">
-    <div class="name">{{name}}</div>
-    <div class="year">{{year}}</div>
-    <div class = "category">{{category}}</div>
-    <div class ="description">{{description}}</div>
-    <div class = "director">{{director}}</div>
-    <div class = "min_age">{{min_age}}</div>
-    <iframe width="560" height="315" src="{{trailer}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- Détails du film -->
+    <div class="movie-info">
+        <h1 class="name">{{name}}</h1>
+        <p class="year">{{year}}</p>
+        <p class="category">{{category}}</p>
+        <p class="description">{{description}}</p>
+
+        <div class="meta-info">
+            <p class="director">Réalisé par : {{director}}</p>
+            <p class="min_age">Restriction d'âge : {{min_age}}</p>
+        </div>
+    </div>
+
+    <!-- Bande-annonce en bas -->
+    <iframe 
+        src="{{trailer}}" 
+        title="Bande-annonce de {{name}}" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
 </div>
