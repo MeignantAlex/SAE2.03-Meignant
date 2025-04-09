@@ -13,6 +13,7 @@ MovieDetail.format = function (obj) {
     html = html.replace("{{director}}", obj.director);
     html = html.replace("{{min_age}}", obj.min_age);
     html = html.replace("{{trailer}}", obj.trailer);
+    html = html.replace("{{length}}", obj.length);
     return html;
 }
 
