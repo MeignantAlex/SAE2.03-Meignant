@@ -75,3 +75,44 @@ function getdetailMovie($id) {
     $res = $answer->fetchAll(PDO::FETCH_OBJ);
     return $res; // Retourne le résultat
 }
+
+/*function getcategoryMovie($categorie) {
+  $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD); 
+
+  $sql= "SELECT Movie.id, Movie.name, Movie.image, 
+            FROM Movie
+            INNER JOIN Category ON Movie.id_Category = Category.id
+            WHERE Category.name = :Category_name";
+
+ $answer = $cnx->query($sql);
+
+       // Récupère les résultats de la requête sous forme d'objets
+       $res = $answer->fetchAll(PDO::FETCH_OBJ);
+       return $res; // Retourne les résultats
+}*/
+function getMoviePerCategorie($cat)
+{
+    // Connexion à la base de données
+    $cnx = new PDO("mysql:host=" . HOST . ";dbname=" . DBNAME, DBLOGIN, DBPWD);
+    // Requête SQL pour récupérer le Movie avec des paramètres
+    $sql = "SELECT Movie.name, Movie.image, Movie.id
+            FROM Movie
+            INNER JOIN Category ON Movie.id_category = Category.id
+            WHERE Category.name = :category_name";
+    // Prépare la requête SQL
+    $stmt = $cnx->prepare($sql);
+
+    $stmt->bindParam(':category_name', $cat);
+    // Exécute la requête SQL
+    $stmt->execute();
+    // Récupère les résultats de la requête sous forme d'objets
+    $res = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $res; 
+    }
+
+
+
+
+
+
+       

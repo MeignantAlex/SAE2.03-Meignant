@@ -18,15 +18,28 @@ DataMovie.request = async function(){
 }
 
 DataMovie.requestMovieDetail = async function($id){
-    // Envoie une requête pour obtenir tous les détails d’un film en transmettant son identifiant
     let answer = await fetch(HOST_URL + "/server/script.php?todo=movieDetails&id=" + $id);
     let data = await answer.json();
     return data;
 }
 
+/*DataMovie.requestMovieCategory = async function () {
+    let answer = await fetch(HOST_URL + "/server/script.php?todo=category");
+    let data = await answer.json();
+    return data; 
+};*/
+
+
+DataMovie.requestCat = async function (cat) {
+    let answer2 = await fetch(
+      HOST_URL + "/server/script.php?todo=readMoviesCat&category=" + cat
+    );
+    let data2 = await answer2.json();
+    return data2;
+  };
+
 export {DataMovie};
 
 
 
-
-
+ 

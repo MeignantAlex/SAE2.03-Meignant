@@ -12,12 +12,36 @@
 
     <h1>Streaming</h1>
     <section class = "content" id="content"></section>
+      <div class="Movie__list" id="Movies__list"></div>
+      <div id="Movie__detail" style="display: none"></div>
+      <h2 class="title">Action</h2>
+      <div class="Movie__list" id="Movies__Action"></div>
+      <h2 class="title">Comique</h2>
+      <div class="Movie__list" id="Movies__Comedie"></div>
+      <h2 class="title">Dramatique</h2>
+      <div class="Movie__list" id="Movies__Drame"></div>
+      <h2 class="title">Science-fiction</h2>
+      <div class="Movie__list" id="Movies__Science-fiction"></div>
+      <h2 class="title">Animation</h2>
+      <div class="Movie__list" id="Movies__Animation"></div>
+      <h2 class="title">Thriller</h2>
+      <div class="Movie__list" id="Movies__Thriller"></div>
+      <h2 class="title">Horreur</h2>
+      <div class="Movie__list" id="Movies__Horreur"></div>
+      <h2 class="title">Aventure</h2>
+      <div class="Movie__list" id="Movies__Aventure"></div>
+      <h2 class="title">Fantaisiste</h2>
+      <div class="Movie__list" id="Movies__Fantaisie"></div>
+      <h2 class="title">Documentaire</h2>
+      <div class="Movie__list" id="Movies__Documentaire"></div>
+    </section>
 
     <script type="module">
       import { NavBar } from "./component/NavBar/script.js";
       import {Movie} from "./component/Movie/script.js";
       import {MovieDetail} from "./component/MovieDetail/script.js";
-      import { DataMovie } from "./data/dataMovie.js";
+      import { DataMovie } from "./data/dataMovie.js"; 
+      import { MovieCategory } from "./component/MovieCategory/script.js";
       console.log(DataMovie.request());
 
 
@@ -41,12 +65,23 @@
        V.renderDetail(id);
       };
 
+      C.handlerMovieCategory = async function () {
+      console.log("Affichage des films par catégorie");
+      V.renderCategory();
+    };
 
       C.start = function () {
         V.renderNavBar("C.handlerAbout()", "V.renderMovie()");
         V.renderMovie();
-        
-      
+        C.getMoviesCat ("Action");
+        C.getMoviesCat("Comedie");
+        C.getMoviesCat("Drame");
+        C.getMoviesCat("Science-fiction");
+        C.getMoviesCat("Animation");
+        C.getMoviesCat("Thriller");
+        C.getMoviesCat("Aventure");
+        C.getMoviesCat("Fantaisie");
+        C.getMoviesCat("Documentaire");
       };
 
       // Vue (contient tout ce qui est relatif à l'affichage)
@@ -96,6 +131,36 @@
         content.innerHTML = html;
       };
 
+    /*  V.renderCategory = async function () {
+    let content = document.querySelector("#categorie");
+    let categories = await DataMovie.requestMovieCategory(); // Récupère les films groupés par catégorie
+    console.log(categories);
+
+    let html = "";
+    for (let category of categories) {
+        // Utilise le composant MovieCategory pour chaque catégorie
+        html += MovieCategory.format(category.name, category.movies);
+    }
+
+    content.innerHTML = html;
+};
+*/
+
+C.getMoviesCat = async function (category) {
+        let data2 = await DataMovie.requestCat(category);
+        let categoryContainer = document.querySelector("#Movies__" + category);
+        console.log("Categories" + data2)
+        console.log("div renu" + categoryContainer)
+        categoryContainer.innerHTML = MovieCategory.format(data2);
+        // Add click event listeners to category film cards
+        let filmCards = categoryContainer.querySelectorAll(".film__card__cat");
+        filmCards.forEach((card) => {
+          card.addEventListener("click", () => {
+            let movieId = card.getAttribute("data-id");
+            C.handlerDetail(movieId);
+          });
+        });
+      };
     
       
 
@@ -105,4 +170,3 @@
     </script>
   </body>
 </html>
-<script type="module"></script>

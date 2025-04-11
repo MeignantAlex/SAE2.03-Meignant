@@ -57,3 +57,12 @@ function updateController(){
     $movie = getdetailMovie($id);
     return $movie;
   }
+
+
+  function readMoviesPerCategorieController()
+{
+  $film_list_cat = getMoviePerCategorie($_REQUEST['category'], $_REQUEST['age']);
+  return $film_list_cat;
+}
+    
+   
