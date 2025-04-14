@@ -1,135 +1,139 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <title>SAE2.03 APP</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/base.css" />
-  </head>
 
-  <body>
-    <header id="header"></header>
+<head>
+  <title>SAE2.03 APP</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/base.css" />
+</head>
 
-    <h1>Streaming</h1>
-    <section class = "content" id="content"></section>
-      <div class="Movie__list" id="Movies__list"></div>
-      <div id="Movie__detail" style="display: none"></div>
-      <h2 class="title">Action</h2>
-      <div class="Movie__list" id="Movies__Action"></div>
-      <h2 class="title">Comique</h2>
-      <div class="Movie__list" id="Movies__Comedie"></div>
-      <h2 class="title">Dramatique</h2>
-      <div class="Movie__list" id="Movies__Drame"></div>
-      <h2 class="title">Science-fiction</h2>
-      <div class="Movie__list" id="Movies__Science-fiction"></div>
-      <h2 class="title">Animation</h2>
-      <div class="Movie__list" id="Movies__Animation"></div>
-      <h2 class="title">Thriller</h2>
-      <div class="Movie__list" id="Movies__Thriller"></div>
-      <h2 class="title">Horreur</h2>
-      <div class="Movie__list" id="Movies__Horreur"></div>
-      <h2 class="title">Aventure</h2>
-      <div class="Movie__list" id="Movies__Aventure"></div>
-      <h2 class="title">Fantaisiste</h2>
-      <div class="Movie__list" id="Movies__Fantaisie"></div>
-      <h2 class="title">Documentaire</h2>
-      <div class="Movie__list" id="Movies__Documentaire"></div>
-    </section>
+<body>
+  <header id="header"></header>
 
-    <script type="module">
-      import { NavBar } from "./component/NavBar/script.js";
-      import {Movie} from "./component/Movie/script.js";
-      import {MovieDetail} from "./component/MovieDetail/script.js";
-      import { DataMovie } from "./data/dataMovie.js"; 
-      import { MovieCategory } from "./component/MovieCategory/script.js";
-      console.log(DataMovie.request());
+  <h1 class = "content__text">Tous Nos Films</h1>
+  <section class="content" id="content"></section>
+  <div class="Movie__list" id="Movies__list"></div>
+  <div id="Movie__detail" style="display: none"></div>
+  <h2 class="title">Action</h2>
+  <div class="Movie__list" id="Movies__Action"></div>
+  <h2 class="title">Comique</h2>
+  <div class="Movie__list" id="Movies__Comedie"></div>
+  <h2 class="title">Dramatique</h2>
+  <div class="Movie__list" id="Movies__Drame"></div>
+  <h2 class="title">Science-fiction</h2>
+  <div class="Movie__list" id="Movies__Science-fiction"></div>
+  <h2 class="title">Animation</h2>
+  <div class="Movie__list" id="Movies__Animation"></div>
+  <h2 class="title">Thriller</h2>
+  <div class="Movie__list" id="Movies__Thriller"></div>
+  <h2 class="title">Horreur</h2>
+  <div class="Movie__list" id="Movies__Horreur"></div>
+  <h2 class="title">Aventure</h2>
+  <div class="Movie__list" id="Movies__Aventure"></div>
+  <h2 class="title">Fantaisiste</h2>
+  <div class="Movie__list" id="Movies__Fantaisie"></div>
+  <h2 class="title">Documentaire</h2>
+  <div class="Movie__list" id="Movies__Documentaire"></div>
+  </section>
 
-
-
-      // Controleur
-      // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
-      // Une fois l'application terminée, on pourrait remettre let C.
-      window.C = {};
-
-      
+  <script type="module">
+    import { NavBar } from "./component/NavBar/script.js";
+    import { Movie } from "./component/Movie/script.js";
+    import { MovieDetail } from "./component/MovieDetail/script.js";
+    import { DataMovie } from "./data/dataMovie.js";
+    import { MovieCategory } from "./component/MovieCategory/script.js";
+    console.log(DataMovie.request());
 
 
-      C.handlerAbout = function () {
-        alert(
-          "Ceci est une base de projet pour la SAE2.03 édition 2025. Bonne chance !"
-        );
-      };
 
-      C.handlerMovie = async function (id) {
-       console.log(id)
-       V.renderDetail(id);
-      };
+    // Controleur
+    // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
+    // Une fois l'application terminée, on pourrait remettre let C.
+    window.C = {};
 
-      C.handlerMovieCategory = async function () {
+
+
+
+    C.handlerAbout = function () {
+      alert(
+        "Ceci est une base de projet pour la SAE2.03 édition 2025. Bonne chance !"
+      );
+    };
+
+    C.handlerMovie = async function (id) {
+      console.log(id)
+      V.renderDetail(id);
+    };
+
+    C.handlerMovieCategory = async function () {
       console.log("Affichage des films par catégorie");
       V.renderCategory();
     };
 
-      C.start = function () {
-        V.renderNavBar("C.handlerAbout()", "V.renderMovie()");
-        V.renderMovie();
-        C.getMoviesCat ("Action");
-        C.getMoviesCat("Comedie");
-        C.getMoviesCat("Drame");
-        C.getMoviesCat("Science-fiction");
-        C.getMoviesCat("Animation");
-        C.getMoviesCat("Thriller");
-        C.getMoviesCat("Aventure");
-        C.getMoviesCat("Fantaisie");
-        C.getMoviesCat("Documentaire");
-      };
+    C.start = function () {
+      V.renderNavBar("C.handlerAbout()", "V.renderMovie()");
+      V.renderMovie();
+      C.getMoviesCat("Action");
+      C.getMoviesCat("Comedie");
+      C.getMoviesCat("Drame");
+      C.getMoviesCat("Science-fiction");
+      C.getMoviesCat("Animation");
+      C.getMoviesCat("Thriller");
+      C.getMoviesCat("Aventure");
+      C.getMoviesCat("Fantaisie");
+      C.getMoviesCat("Documentaire");
+    };
 
-      // Vue (contient tout ce qui est relatif à l'affichage)
-      window.V = {};
+    // Vue (contient tout ce qui est relatif à l'affichage)
+    window.V = {};
 
-      /**
-       * V.renderNavBar
-       *
-       * Cette fonction est responsable de l'affichage de la barre de navigation (NavBar).
-       * Elle sélectionne l'élément HTML avec l'ID "header" et y insère le contenu
-       * formaté par le composant NavBar.
-       */
-      V.renderNavBar = function (hAbout, hHome) {
-        let header = document.querySelector("#header");
-        header.innerHTML = NavBar.format(hAbout, hHome);
+    /**
+     * V.renderNavBar
+     *
+     * Cette fonction est responsable de l'affichage de la barre de navigation (NavBar).
+     * Elle sélectionne l'élément HTML avec l'ID "header" et y insère le contenu
+     * formaté par le composant NavBar.
+     */
+    V.renderNavBar = function (hAbout, hHome) {
+      let header = document.querySelector("#header");
+      header.innerHTML = NavBar.format(hAbout, hHome);
 
-       
-      };
 
-      V.renderMovie = async function () {
-        let content = document.querySelector("#content");
-        const movies = await DataMovie.request();
-        //const movies = []; 
-        //pour tester l'affichage de la page sans film
-        console.log(movies);
-        if (movies.length === 0) {
-         content.innerHTML = Movie.formatNoMovie();
-         return;
-        }
-        let html = "";
-        for (let movie of movies) {
-          html += Movie.format(movie.id,movie.name, movie.image);
+    };
 
-        }
-        content.innerHTML = html;
-      };
+    V.renderMovie = async function () {
+      let content = document.querySelector("#content");
+      const movies = await DataMovie.request();
+      //const movies = []; 
+      //pour tester l'affichage de la page sans film
+      console.log(movies);
+      if (movies.length === 0) {
+        content.innerHTML = Movie.formatNoMovie();
+        return;
+      }
+      let html = "";
+      for (let movie of movies) {
+        html += Movie.format(movie.id, movie.name, movie.image);
 
-      V.renderDetail = async function ($id) {
-        let content = document.querySelector("#content");
-        let movie = await DataMovie.requestMovieDetail($id);
-        console.log(movie);
-        let html = "";
-        
-          html += MovieDetail.format(movie[0]);
+      }
+      content.innerHTML = html;
+    };
 
-        
-        content.innerHTML = html;
-      };
+    V.renderDetail = async function ($id) {
+      let content = document.querySelector("#content");
+      let movie = await DataMovie.requestMovieDetail($id);
+      console.log(movie);
+      let html = "";
+
+      html += MovieDetail.format(movie[0]);
+
+      window.scrollTo({top: 0, behavior: 'smooth'});
+
+
+
+      content.innerHTML = html;
+    };
 
     /*  V.renderCategory = async function () {
     let content = document.querySelector("#categorie");
@@ -146,27 +150,28 @@
 };
 */
 
-C.getMoviesCat = async function (category) {
-        let data2 = await DataMovie.requestCat(category);
-        let categoryContainer = document.querySelector("#Movies__" + category);
-        console.log("Categories" + data2)
-        console.log("div renu" + categoryContainer)
-        categoryContainer.innerHTML = MovieCategory.format(data2);
-        // Add click event listeners to category film cards
-        let filmCards = categoryContainer.querySelectorAll(".film__card__cat");
-        filmCards.forEach((card) => {
-          card.addEventListener("click", () => {
-            let movieId = card.getAttribute("data-id");
-            C.handlerDetail(movieId);
-          });
+    C.getMoviesCat = async function (category) {
+      let data2 = await DataMovie.requestCat(category);
+      let categoryContainer = document.querySelector("#Movies__" + category);
+      console.log("Categories" + data2)
+      console.log("div renu" + categoryContainer)
+      categoryContainer.innerHTML = MovieCategory.format(data2);
+      // Add click event listeners to category film cards
+      let filmCards = categoryContainer.querySelectorAll(".film__card__cat");
+      filmCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          let movieId = card.getAttribute("data-id");
+          C.handlerDetail(movieId);
         });
-      };
-    
-      
+      });
+    };
 
-      
 
-      C.start(); // Démarre l'application
-    </script>
-  </body>
+
+
+
+    C.start(); // Démarre l'application
+  </script>
+</body>
+
 </html>
