@@ -1,0 +1,89 @@
+.form-wrapper {
+    display: flex;
+    justify-content: center; /* Centrage horizontal */
+    align-items: flex-start; /* Alignement en haut */
+    gap: 3rem; /* Espace entre les deux formulaires */
+    margin-top: 3rem;
+    flex-wrap: wrap; /* Responsive : un en dessous de l'autre sur petit écran */
+}
+
+.addUser {
+    max-width: 28rem; /* un peu plus large */
+    height: 100%;     /* pour permettre de s'adapter */
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 6rem; /* 👈 pour descendre le formulaire ! */
+}
+
+.addUser__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.addUser__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+}
+
+.addUser__form input {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.addUser__form input:focus {
+    border-color: #007bff;
+}
+
+.addUser__form button {
+    padding: 0.75rem;
+    background-color: #007bff; /* ✅ même bleu que l'autre */
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+
+.addUser__form button:hover {
+    background-color: #0056b3;
+}
+
+.addUser__form button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 48rem) {
+    .addUser {
+        padding: 1.5rem;
+    }
+
+    .addUser__title {
+        font-size: 1.25rem;
+    }
+
+    .addUser__form input,
+    .addUser__form button {
+        font-size: 0.9rem;
+    }
+}
+
+
+

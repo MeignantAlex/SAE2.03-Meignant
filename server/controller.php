@@ -51,20 +51,37 @@ function updateController(){
     }
   }
 
-  function addController(){
+  function addController() {
+    $username = $_REQUEST['username'] ?? '';
+    $avatar = $_REQUEST['avatar'] ?? '';
+    $restriction = $_REQUEST['restriction'] ?? '';
 
-    $username = $_REQUEST['username'];
-    $avatar = $_REQUEST['avatar'];
-    $restriction = $_REQUEST['restriction'];
+    // Nettoyage des espaces
+    $username = trim($username);
+    $avatar = trim($avatar);
+    $restriction = trim($restriction);
 
-    $ok = addUser($username, $avatar, $restriction);
-    if ($ok!=0){
-      return "L'utilisateur $username a été ajouté avec succès !";
+    // Vérification des champs obligatoires
+    if ($username === '' || $restriction === '') {
+        return ['error' => 'Le nom du profil et la restriction sont obligatoires.'];
     }
-    else{
-      return false;
+
+    // Vérification de la restriction : doit être un nombre valide
+    $allowedRestrictions = [0, 12, 16, 18];
+    if (!in_array((int)$restriction, $allowedRestrictions)) {
+        return ['error' => 'La restriction d\'âge est invalide. Valeurs autorisées : 0, 12, 16, 18.'];
     }
-  }
+
+    // Insertion dans la BDD via le modèle
+    $ok = addUser($username, $avatar !== '' ? $avatar : null, (int)$restriction);
+
+    if ($ok != 0) {
+        return ['success' => "Le profil '$username' a été ajouté avec succès !"];
+    } else {
+        return ['error' => "Une erreur est survenue lors de l'ajout du profil."];
+    }
+}
+
   
 
   function detailController(){
