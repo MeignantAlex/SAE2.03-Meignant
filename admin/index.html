@@ -12,14 +12,18 @@
   <div>
     <section id="log"></section>
     <section id="MovieForm"></section>
+    <section id="UserForm"></section>
 
   </div>
 
 
   <script type="module">
+    
     import { Log } from "./component/Log/script.js";
     import { MovieForm } from "./component/MovieForm/script.js";
     import { DataMovie } from "./data/dataMovie.js";
+    import { DataUser } from "./data/dataUser.js";
+    import { UserForm } from "./component/UserForm/script.js";
 
     window.C = {};
     C.handlerUpdate = async function () {
@@ -34,11 +38,22 @@
       V.renderLog(res);
     };
 
+    C.addUpdateUser = async function () {
+      let form = document.querySelector('.addUser__form');
+
+      let fd = new FormData(form);
+      // Attend la réponse de la fonction `DataMenu.update(fd)`
+      let res = await DataUser.add(fd);
+      // Affiche le résultat de la mise à jour dans le journal
+      V.renderLog(res);
+    };
+
 
 
     C.start = function () {
       V.renderLog("Démarrage de l'application");
       V.renderMovieForm("C.handlerUpdate()");
+      V.renderUserForm("C.addUpdateUser()");
     };
 
     window.V = {};
@@ -50,6 +65,11 @@
     V.renderMovieForm = function (handler) {
       let content = document.querySelector("#MovieForm");
       content.innerHTML = MovieForm.format(handler);
+    };
+
+    V.renderUserForm = function (addu) {
+      let content = document.querySelector("#UserForm");
+      content.innerHTML = UserForm.format(addu);
     };
 
 

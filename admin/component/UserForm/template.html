@@ -1,0 +1,27 @@
+<div class = "addUser">
+    <h5 class = "addUser__title"># Ajouter ou modifier un utilisateur dans le bdd</h5>
+    <form class = "addUser__form">
+
+            <input required 
+            type="text" 
+            name="username" 
+            placeholder="Saisir le nom d'utilisateur"
+            />
+
+            <input required
+            type="text"
+            name="avatar"
+            placeholder="Saisir l'url de la photo de profil"
+            />
+
+            <input required
+            type="number"
+            name="restriction"
+            placeholder="Saisi l'age de l'utilisateur"
+            />
+
+
+            <input onclick="{{addu}}" type="button" value="Add User" name="todo"/>
+
+    </form>
+</div>

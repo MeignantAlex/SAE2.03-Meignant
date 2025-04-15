@@ -58,7 +58,48 @@ define("DBPWD", "meignant3");
     // Récupère le nombre de lignes affectées par la requête
     $res = $stmt->rowCount(); 
     return $res; // Retourne le nombre de lignes affectées
+
 }
+
+
+/*function addUser($us, $av, $rest) {
+    // Connexion à la base de données
+    $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD); 
+    // Requête SQL pour insérer un nouvel utilisateur
+    $sql = "INSERT INTO `User`(`username`, `avatar`, `restriction`) 
+    VALUES (:username, :avatar, :restriction)";
+    // Prépare la requête SQL
+    $stmt = $cnx->prepare($sql);
+    // Lie les paramètres aux valeurs
+    $stmt->bindParam(':username', $us);
+    $stmt->bindParam(':avatar', $av);
+    $stmt->bindParam(':restriction', $rest);
+    // Exécute la requête SQL
+    $stmt->execute();
+    // Récupère le nombre de lignes affectées par la requête
+    $res = $stmt->rowCount(); 
+    return $res; // Retourne le nombre de lignes affectées
+
+}
+*/
+
+function addUser($us, $av, $rest) {
+  try {
+      $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD); 
+      $sql = "INSERT INTO `User`(`username`, `avatar`, `restriction`) VALUES (:username, :avatar, :restriction)";
+      $stmt = $cnx->prepare($sql);
+      $stmt->bindParam(':username', $us);
+      $stmt->bindParam(':avatar', $av);
+      $stmt->bindParam(':restriction', $rest);
+      $stmt->execute();
+      return $stmt->rowCount(); 
+  } catch (PDOException $e) {
+      echo json_encode(['error' => $e->getMessage()]); // <<< on affiche l'erreur
+      http_response_code(500);
+      exit(); // <<< très important pour éviter les erreurs fantômes
+  }
+}
+
 
 
 function getdetailMovie($id) {

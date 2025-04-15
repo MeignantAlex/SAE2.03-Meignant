@@ -50,6 +50,21 @@ function updateController(){
       return false;
     }
   }
+
+  function addController(){
+
+    $username = $_REQUEST['username'];
+    $avatar = $_REQUEST['avatar'];
+    $restriction = $_REQUEST['restriction'];
+
+    $ok = addUser($username, $avatar, $restriction);
+    if ($ok!=0){
+      return "L'utilisateur $username a été ajouté avec succès !";
+    }
+    else{
+      return false;
+    }
+  }
   
 
   function detailController(){

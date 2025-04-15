@@ -1,0 +1,30 @@
+let HOST_URL = "https://mmi.unilim.fr/~meignant3/SAE2.03-Meignant"; // CHANGE THIS TO MATCH YOUR CONFIG
+
+let DataUser = {};
+
+/** 
+* @param {*} fdata
+* @returns
+*/
+ 
+DataUser.add = async function(fdata){
+    // fetch permet d'envoyer une requête HTTP à l'URL spécifiée. 
+    // L'URL est construite en concaténant HOST_URL à "/server/script.php?direction=" et la valeur de la variable dir. 
+    // L'URL finale dépend de la valeur de HOST_URL et de dir.
+    console.log(fdata);
+    let config = {
+        method: "POST",
+        body: fdata
+
+    }
+
+    let answer = await fetch(HOST_URL + "/server/script.php?todo=add", config);
+
+    if (!answer.ok) {
+        throw new Error("Echec de la requête " + answer.statusText);
+    }   
+    let data = await answer.json();
+    return data;
+}
+
+export {DataUser};
