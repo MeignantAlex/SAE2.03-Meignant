@@ -25,11 +25,16 @@ ul, li{
   text-decoration: none;
 }
 
+.title{
+  font-family: sans-serif;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0.125rem 0.125rem 0.5rem rgba(0, 0, 0, 0.6);
+    font-size: 3rem;
+  }
+
+
 /* Set core body defaults */
-body {
-  min-height: 100vh;
-  line-height: 1.5;
-}
 
 /* Set shorter line heights on headings and interactive elements */
 h1, h2, h3, h4,

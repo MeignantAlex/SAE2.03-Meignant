@@ -114,7 +114,7 @@
       }
       let html = "";
       for (let movie of movies) {
-        html += Movie.format(movie.id, movie.name, movie.image);
+        html += Movie.format(movie.id, movie.name, movie.image, movie.min_age);
 
       }
       content.innerHTML = html;

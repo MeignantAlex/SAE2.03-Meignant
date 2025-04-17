@@ -5,13 +5,16 @@ let template2 = await templateFile2.text();
 
 let Movie = {};
 
-Movie.format = function (handler, name, image) {
+Movie.format = function (handler, name, image, min_age) {
     let html = template;
     html = html.replace("{id}", handler);
     // html = html.replace("{{handler}}", handler);
     html = html.replace("{{name}}", name);
     html = html.replace("{{image}}", image);
+    html = html.replace("{{min_age}}", min_age);
+    
     return html;
+    
 }
 
 Movie.formatNoMovie = function () {

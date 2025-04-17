@@ -2,20 +2,27 @@
     
     <!-- Image du film -->
     <img class="img" src="https://mmi.unilim.fr/~meignant3/SAE2.03-Meignant/server/images/{{image}}" alt="Affiche du film">
-
-    <!-- Détails du film -->
+   
     <div class="movie-info">
-        <h1 class="name">{{name}}</h1>
-        <p class="year">{{year}}</p>
-        <p class="category">{{id_category}}</p>
-        <p class="description">{{description}}</p>
+  <!-- Titre directement dans la grille principale -->
+  <h1 class="name">{{name}}</h1>
 
-        <div class="meta-info">
-            <p class="director">Réalisé par : {{director}}</p>
-            <p class ="length">durée du film : {{length}} min</p>
-            <p class="min_age">Restriction d'âge : {{min_age}} ans</p>
-        </div>
-    </div>
+  <!-- Colonne gauche -->
+  <div class="left-info">
+    <p class="year">{{year}}</p>
+    <p class="category">{{id_category}}</p>
+    <p class="description">{{description}}</p>
+  </div>
+
+  <!-- Colonne droite -->
+  <div class="right-info">
+    <p class="director">Réalisé par : {{director}}</p>
+    <p class="length">Durée : {{length}} min</p>
+    <p class="min_age">Âge minimum : {{min_age}} ans</p>
+  </div>
+</div>
+
+      
 
     <!-- Bande-annonce en bas -->
     <iframe 

@@ -17,6 +17,7 @@ DataMovie.request = async function(){
     return data;
 }
 
+
 DataMovie.requestMovieDetail = async function($id){
     let answer = await fetch(HOST_URL + "/server/script.php?todo=movieDetails&id=" + $id);
     let data = await answer.json();

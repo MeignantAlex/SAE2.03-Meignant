@@ -14,5 +14,31 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
+    padding-inline: 3rem;
+    justify-content: center;
+    margin-block: 2rem;
 }
 
+.content__text{
+  font-family: sans-serif;
+    font-weight: bold;   
+    text-shadow: 0.125rem 0.125rem 0.5rem rgba(0, 0, 0, 0.6);
+    font-size: 3rem;
+    text-align: center;
+    color: white;
+}
+
+
+
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    background: linear-gradient(
+      135deg,
+      #97a1af 5%,   /* Le blanc s'arrête vite */
+      #131B22 15%,   /* Commence le foncé tôt */
+      #131B22 100%   /* Et reste jusqu’au bout */
+    );
+  }
+  

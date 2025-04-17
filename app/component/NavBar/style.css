@@ -3,9 +3,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
+  padding: 0.4rem 3rem;
+  min-height: 50px;
   color: var(--color-fg);
-  background-color: var(--color-bg);
+  background-color: #0D1118;
   flex-wrap: wrap;
 
   .navbar__item {
@@ -13,17 +14,23 @@
     padding: 0.5rem 1rem;
     text-decoration: underline;
     text-decoration-thickness: 0.1rem;
+    text-decoration-color: orange;
     text-underline-offset: var(--_offset);
     cursor: pointer;
     transition: text-underline-offset 0.2s ease-in-out;
+
     &:hover {
       --_offset: 0.5rem;
     }
   }
 }
 
+.navbar__item img {
+  width: 4.375rem;
+  height: auto;
+}
 
-.navbar__list{
+.navbar__list {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
@@ -33,4 +40,5 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  font-weight: 400;
 }

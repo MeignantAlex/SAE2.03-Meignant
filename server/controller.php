@@ -23,8 +23,9 @@ require("model.php");
 function readController(){
 
     $movie = getMovies();
-    return $movie;
+    return $movie; 
 }
+
 
 function updateController(){
     /* Lecture des données de formulaire
