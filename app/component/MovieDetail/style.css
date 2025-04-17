@@ -64,7 +64,7 @@
     position: relative;
     font-size: 2.5rem;
     font-weight: bold;
-    font-style: italic;
+    font-style: bold;
     color: white;
     margin: 0 0 1rem 0;
     grid-column: 1 / -1;
@@ -73,27 +73,27 @@
 
 .MovieDetail .year,
 .MovieDetail .category {
-    font-style: italic;
+    font-style: bold;
     color: #b9b9b9;
 }
 
 .MovieDetail .description {
     font-size: 1.125rem;
     line-height: 1.6;
-    font-style: italic;
+    font-style: bold;
     color: #d4d4d4;
 }
 
 .MovieDetail .length {
     font-size: 1.125rem;
-    font-style: italic;
+    font-style: bold;
     color: rgba(255, 255, 255, 0.637);
 }
 
 .MovieDetail .director,
 .MovieDetail .min_age {
     font-size: 0.875rem;
-    font-style: italic;
+    font-style: bold;
     color: #d4d4d4;
 }
 
