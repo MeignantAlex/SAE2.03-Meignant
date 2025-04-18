@@ -11,9 +11,9 @@
     max-width: 28rem; /* un peu plus large */
     height: 100%;     /* pour permettre de s'adapter */
     padding: 2rem;
-    background-color: #f9f9f9;
+    background-color: var(--color-fg);
     border-radius: 0.5rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1rem var(--color-black);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,7 +26,7 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: var(--color-gray-dark);
 }
 
 .addUser__form {
@@ -39,20 +39,20 @@
 .addUser__form input {
     padding: 0.75rem;
     font-size: 1rem;
-    border: 0.0625rem solid #ccc;
+    border: 0.0625rem solid var(--color-gray-light);
     border-radius: 0.25rem;
     outline: none;
     transition: border-color 0.3s ease;
 }
 
 .addUser__form input:focus {
-    border-color: #007bff;
+    border-color: var(--color-blue);
 }
 
 .addUser__form button {
     padding: 0.75rem;
-    background-color: #007bff; /* ✅ même bleu que l'autre */
-    color: #fff;
+    background-color: var(--color-blue-dark); 
+    color: var(--color-white);
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
@@ -63,7 +63,7 @@
 
 
 .addUser__form button:hover {
-    background-color: #0056b3;
+    background-color: var(--color-blue-dark);
 }
 
 .addUser__form button:active {

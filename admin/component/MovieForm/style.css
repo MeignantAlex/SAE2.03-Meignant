@@ -4,7 +4,7 @@
     padding: 2rem;
     background-color: #f9f9f9;
     border-radius: 0.5rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1rem var(--color-black);
 }
 
 .addMovie__title {
@@ -12,7 +12,7 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: var(--color-gray-dark);
 }
 
 .addMovie__form {
@@ -25,7 +25,7 @@
 .addMovie__form select {
     padding: 0.75rem;
     font-size: 1rem;
-    border: 0.0625rem solid #ccc;
+    border: 0.0625rem solid var(--color-gray-light);
     border-radius: 0.25rem;
     outline: none;
     transition: border-color 0.3s ease;
@@ -33,11 +33,11 @@
 
 .addMovie__form input:focus,
 .addMovie__form select:focus {
-    border-color: #007bff;
+    border-color: var(--color-blue);
 }
 
 .addMovie__form input[type="button"] {
-    background-color: #007bff;
+    background-color: var(--color-blue);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -46,11 +46,11 @@
 }
 
 .addMovie__form input[type="button"]:hover {
-    background-color: #0056b3;
+    background-color: var(--color-blue-dark);
 }
 
 .addMovie__form select {
-    background-color: #fff;
+    background-color: var(--color-white);
     cursor: pointer;
 }
 

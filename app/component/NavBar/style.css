@@ -14,7 +14,7 @@
     padding: 0.5rem 1rem;
     text-decoration: underline;
     text-decoration-thickness: 0.1rem;
-    text-decoration-color: orange;
+    text-decoration-color: var(--color-orange);
     text-underline-offset: var(--_offset);
     cursor: pointer;
     transition: text-underline-offset 0.2s ease-in-out;
